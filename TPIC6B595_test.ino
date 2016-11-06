@@ -35,9 +35,9 @@ void setup() {
 void loop() {
   /*
  for (int i = 0; i <= 9; i++) {
-  byte number1 = NUMBER[i];
-  byte number2 = NUMBER[i];
-  byte number3 = NUMBER[i];
+  byte number1 = NUMBER[2][i];
+  byte number2 = NUMBER[2][i];
+  byte number3 = NUMBER[2][i];
   bitWrite(number1, 7, 1);
   bitWrite(number2, 7, 1);
   bitWrite(number3, 7, 1);
@@ -47,18 +47,32 @@ void loop() {
    shiftOut(datapin, clockpin, MSBFIRST, number1);
    shiftOut(datapin, clockpin, MSBFIRST, number2);
    shiftOut(datapin, clockpin, MSBFIRST, number3);
+   shiftOut(datapin, clockpin, MSBFIRST, number1);
+   shiftOut(datapin, clockpin, MSBFIRST, number2);
+   shiftOut(datapin, clockpin, MSBFIRST, number1);
    digitalWrite(latchpin, HIGH);
    digitalWrite(latchpin, LOW);
  delay(1000);
  */
+ 
  for (int i = 0; i <= 9; i++) {
   for (int j= 0; j < 3; j++) {
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
-    shiftOut(datapin, clockpin, MSBFIRST, NUMBER[j][i]);
+    byte number = NUMBER[j][i];
+    bitWrite(number, 7, 1);
+    
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
+    shiftOut(datapin, clockpin, MSBFIRST, number);
     digitalWrite(latchpin, HIGH);
     digitalWrite(latchpin, LOW);
     delay(100);
